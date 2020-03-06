@@ -10,8 +10,8 @@ puckSize = 15;
 paddleWidth = 10;
 paddleLength = 60;
 
-paddleLY = 50;
-paddleRY = 50;
+paddleL = 50;
+paddleR = 50;
 
 function setup() {
   createCanvas(400, 400);
@@ -23,8 +23,8 @@ function draw() {
   rectMode(CENTER);
   fill(255);
   noStroke();
-  rect(10, paddleLY, paddleWidth, paddleLength);
-  rect(width-10, paddleRY, paddleWidth, paddleLength);
+  rect(10, paddleL, paddleWidth, paddleLength);
+  rect(width-10, paddleR, paddleWidth, paddleLength);
   
   textFont('Courier');
   fill(255);
@@ -62,39 +62,39 @@ function draw() {
   
   // user input
   if (keyIsDown(UP_ARROW)) {
-    paddleRY = paddleRY - 5;
+    paddleR = paddleR - 5;
   }
   if (keyIsDown(DOWN_ARROW)) {
-    paddleRY = paddleRY + 5;
+    paddleR = paddleR + 5;
   }
   
     if (keyIsDown(87)) {
-    paddleLY = paddleLY - 5;
+    paddleL = paddleL - 5;
   }
   if (keyIsDown(83)) {
-    paddleLY = paddleLY + 5;
+    paddleL = paddleL + 5;
   }
   
   // game logic
-  if (paddleRY > height - 30) {
-    paddleRY = height - 30;
+  if (paddleR > height - 30) {
+    paddleR = height - 30;
   }
-  if (paddleRY < 30) {
-    paddleRY = 30;
-  }
-  
-    if (paddleLY > height - 30) {
-    paddleLY = height - 30;
-  }
-  if (paddleLY < 30) {
-    paddleLY = 30;
+  if (paddleR < 30) {
+    paddleR = 30;
   }
   
-  if (puckX < 15 && puckY < paddleLY + paddleLength/2 && puckY > paddleLY - paddleLength/2) {
+    if (paddleL > height - 30) {
+    paddleL = height - 30;
+  }
+  if (paddleL < 30) {
+    paddleL = 30;
+  }
+  
+  if (puckX < 15 && puckY < paddleL + paddleLength/2 && puckY > paddleL - paddleLength/2) {
     puckXSpeed = -puckXSpeed;
   }
   
-    if (puckX > width - 15 && puckY < paddleRY + paddleLength/2 && puckY > paddleRY - paddleLength/2) {
+    if (puckX > width - 15 && puckY < paddleR + paddleLength/2 && puckY > paddleR - paddleLength/2) {
     puckXSpeed = -puckXSpeed;
   }
   
